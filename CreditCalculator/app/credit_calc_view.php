@@ -19,9 +19,9 @@
             <label for="id_amount">Kwota jaką chcesz otrzymać: </label>
             <input id="id_amount" type="text" name="amount" value="<?php echo out($values['amount']); ?>" /><br /><br/>
             <label for="id_year">Na ile lat?: </label>
-            <input id="id_year" type="text" name="year"  /><br /><br/>
+            <input id="id_year" type="text" name="year" value="<?php echo out($values['year']); ?>" /><br /><br/>
             <label for="id_percent">Oprocentowanie: </label>
-            <input id="id_percent" type="text" name="percent" />
+            <input id="id_percent" type="text" name="percent" value="<?php echo out($values['percent']); ?>" />
             <label> %</label><br /><br/>
             <input type="submit" value="Oblicz" class="pure-button-primary pure-button"/>
     </form>	

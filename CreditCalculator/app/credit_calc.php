@@ -11,7 +11,7 @@ function getCalcParams(&$values){
     $values['year'] = isset($_REQUEST ['year']) ? $_REQUEST ['year'] : null;
     $values['percent']= isset($_REQUEST ['percent']) ? $_REQUEST ['percent'] : null;
 }
-function validateValues($values, &$CalcMessages){
+function validateValues(&$values, &$CalcMessages){
     if(!(isset($values['amount'])&& isset($values['year']) && isset($values['percent']))){
         return false;
     }
@@ -41,7 +41,7 @@ function validateValues($values, &$CalcMessages){
     }
     return (count($CalcMessages)!=0) ? false : true;
 }
-function countCreditValues($values, $CalcMessages){
+function countCreditValues(&$values, &$CalcMessages, &$monthlyRate, &$allRates){
     if (empty ( $CalcMessages )) {
         $amount = floatval($values['amount']);
         $year = floatval($values['year']);
@@ -52,7 +52,7 @@ function countCreditValues($values, $CalcMessages){
 getCalcParams($values);
 
 if(validateValues($values, $CalcMessages)){
-    countCreditValues($values, $CalcMessages);
+    countCreditValues($values, $CalcMessages, $monthlyRate, $allRates);
 }
 
 include 'credit_calc_view.php';
